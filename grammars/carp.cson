@@ -136,6 +136,12 @@ repository:
                 name: "keyword.control.doc.carp"
             }
             {
+                match: "(?<=(\\s|\\(|\\[|\\{))((use) ([A-Z\\-][a-z\\-]*))(?=(\\s|\\)|\\]|\\}))"
+                captures:
+                    "1": "keyword.control.carp"
+                    "2": "entity.name.module.carp"
+            }
+            {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
                 match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the)(?=(\\s|\\)|\\]|\\}))"
                 name: "keyword.control.carp"
@@ -146,7 +152,8 @@ repository:
                 name: "storage.control.carp"
             }
             {
-                match: "(?<=(\\s|\\())(%|%=|\\*|\\*=|\\+|\\+\\+|\\+=|\\-|\\-\\-|\\-=|/|/=|<|<=|=|==|>|>=|inc|dec)(?=(\\s|\\)))"
+                # match: "(?<=(\\s|\\())(%|%=|\\*|\\*=|\\+|\\+\\+|\\+=|\\-|\\-\\-|\\-=|/|/=|<|<=|=|==|>|>=|inc|dec)(?=(\\s|\\)))"
+                match: "(?<=(\\s|\\())(%|\\*|\\+|\\-|/|/=|<|<=|=|==|>|>=)(?=(\\s|\\)))"
                 name: "keyword.operator.carp"
             }
         ]
