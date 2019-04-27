@@ -138,8 +138,10 @@ repository:
             {
                 match: "(?<=(\\s|\\(|\\[|\\{))((use) ([A-Z\\-][a-z\\-]*))(?=(\\s|\\)|\\]|\\}))"
                 captures:
-                    "1": "keyword.control.carp"
-                    "2": "entity.name.module.carp"
+                    "1":
+                        name: "keyword.control.carp"
+                    "2":
+                        name: "entity.name.module.carp"
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
