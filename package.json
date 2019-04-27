@@ -1,6 +1,6 @@
 {
   "name": "language-carp",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Carp language support in Atom",
   "engines": {
     "atom": "*",
