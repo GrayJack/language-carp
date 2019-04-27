@@ -78,7 +78,7 @@ repository:
         captures:
             "1":
                 name: "punctuation.definition.comment.carp"
-        match: "(;;).*$"
+        match: "(;).*$"
         name: "comment.line.carp"
     braces:
         begin: "({)"
