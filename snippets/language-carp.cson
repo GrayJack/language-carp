@@ -6,15 +6,15 @@
 
   'load':
     'prefix': 'load'
-    'body': '(load ${1:git_module})'
+    'body': '(load "${1:carp_file}")'
 
   'system-include':
     'prefix': 'sys-inc'
-    'body': '(system-include "${1:c_module}")'
+    'body': '(system-include "${1:c_header}")'
 
   'local-include':
     'prefix': 'loc-inc'
-    'body': '(local-include "${1:c_module}")'
+    'body': '(local-include "${1:c_header}")'
 
   # Variable bindings
   'def':
@@ -209,7 +209,7 @@
   'for':
     'prefix': 'for'
     'body': """
-      (for [${1:binding}] ${2:start} ${3:end}
+      (for [${1:binding} ${2:start} ${3:end}]
       \t${4:body})
     """
 
