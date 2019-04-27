@@ -1,42 +1,33 @@
-'.source.janet':
-  # Shebang
-  'shebang':
-    'prefix': 'shebang'
-    'body': '#!/bin/env janet'
-
+'.source.carp':
   # Library loading
-  'import':
-    'prefix': 'import'
-    'body': '(import ${1:path} ${2:args})'
+  'use':
+    'prefix': 'use'
+    'body': '(use ${1:module})'
 
-  'require':
-    'prefix': 'req'
-    'body': '(require ${1:path} ${2:args})'
+  'load':
+    'prefix': 'load'
+    'body': '(load ${1:git_module})'
+
+  'system-include':
+    'prefix': 'sys-inc'
+    'body': '(system-include "${1:c_module}")'
+
+  'local-include':
+    'prefix': 'loc-inc'
+    'body': '(local-include "${1:c_module}")'
 
   # Variable bindings
   'def':
     'prefix': 'def'
     'body': '(def ${1:symbol} ${2:value})'
 
-  'def-':
-    'prefix': 'def-'
-    'body': '(def- ${1:symbol} ${2:value})'
+  'the':
+    'prefix': 'the'
+    'body': '(the ${1:type} ${2:var})'
 
-  'defglobal':
-    'prefix': 'defg'
-    'body': '(defglobal ${1:symbol} ${2:value})'
-
-  'var':
-    'prefix': 'var'
-    'body': '(var ${1:symbol} ${2:value})'
-
-  'varglobal':
-    'prefix': 'varg'
-    'body': '(varglobal ${1:symbol} ${2:value})'
-
-  'set':
-    'prefix': 'set'
-    'body': '(set ${1:var} ${2:value})'
+  'set!':
+    'prefix': 'set!'
+    'body': '(set! ${1:var} ${2:value})'
 
   'let':
     'prefix': 'let'
@@ -50,14 +41,6 @@
     'prefix': 'defn'
     'body': """
       (defn ${1:name}
-      \t[${2:params}]
-      \t${3:body})
-    """
-
-  'defn-':
-    'prefix': 'defn-'
-    'body': """
-      (defn- ${1:name}
       \t[${2:params}]
       \t${3:body})
     """
@@ -78,12 +61,24 @@
       \t${3:more})
     """
 
-  'macro-':
-    'prefix': 'macro-'
+  # Structs and Modules
+  'struct':
+    'prefix': 'struct'
     'body': """
-      (defmacro- ${1:name}
+      (deftype ${1:name}
       \t[${2:params}]
-      \t${3:more})
+    """
+
+  'interface':
+    'prefix': 'interface'
+    'body': '(definterface ${1:name} (${2:Fn}))'
+
+  'module':
+    'prefix': 'module'
+    'body': """
+      (defmodule ${1:name}
+      \t${2:def1}
+      \t${3:more_defs})
     """
 
   # Conditionals
@@ -164,17 +159,21 @@
     """
 
   # Functional paradigm functions
-  'filter':
+  'endo-filter':
     'prefix': 'filter'
-    'body': '(filter ${1:bool} ${2:indexed})'
+    'body': '(endo-filter ${1:bool} ${2:indexed})'
 
-  'some':
-    'prefix': 'some'
-    'body': '(some ${1:bool} ${2:indexed})'
-
-  'map':
+  'endo-map':
     'prefix': 'map'
-    'body': '(map ${1:function} ${2:indexed})'
+    'body': '(endo-map ${1:function} ${2:indexed})'
+
+  'copy-filter':
+    'prefix': 'cfilter'
+    'body': '(copy-filter ${1:bool} ${2:indexed})'
+
+  'copy-map':
+    'prefix': 'cmap'
+    'body': '(copy-map ${1:function} ${2:indexed})'
 
   'reduce':
     'prefix': 'reduce'
@@ -206,13 +205,6 @@
       \t${4:body})
     """
 
-  'loop':
-    'prefix': 'loop'
-    'body': """
-      (loop [${1:head}]
-      \t${2:body})
-    """
-
   'seq':
     'prefix': 'seq'
     'body': """
@@ -220,41 +212,18 @@
       \t${2:body})
     """
 
-  'generate':
-    'prefix': 'gen'
-    'body': """
-      (generate [${1:head}]
-      \t${2:body})
-    """
-
-  'try':
-    'prefix': 'try'
-    'body': """
-      (try
-      \t$1
-      ([${2:exception}]
-      \t$3))
-    """
-
-  # File ops
-  'slurp':
-    'prefix': 'slurp'
-    'body': '(slurp ${1:path})'
-
   # Data structure functions
   'length':
     'prefix': 'len'
     'body': '(length ${1:data_structure})'
-
-  'put':
-    'prefix': 'put'
-    'body': '(put ${1:data_structure} ${2:key} ${3:value})'
 
   # Prints
   'print':
     'prefix': 'print'
     'body': '(print $1)'
 
-  'pretty-print':
-    'prefix': 'pp'
-    'body': '(pp $1)'
+  'println':
+    'prefix': 'println'
+    'body': '(println $1)'
+
+  # Functions
