@@ -1,7 +1,7 @@
 {
   "name": "language-carp",
   "version": "0.0.0",
-  "description": "Janet language support in Atom",
+  "description": "Carp language support in Atom",
   "engines": {
     "atom": "*",
     "node": "*"
