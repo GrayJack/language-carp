@@ -26,6 +26,12 @@ repository:
                 include: "#braces"
             }
             {
+                include: "#ref"
+            }
+            {
+                include: "#copy"
+            }
+            {
                 include: "#readermac"
             }
             {
@@ -125,6 +131,10 @@ repository:
         name: "punctuation.other.carp"
     keyfn:
         patterns: [
+            {
+                match: "(?<=(\\s|\\(|\\[|\\{))(doc)(?=(\\s|\\)|\\]|\\}))"
+                name: "keyword.control.doc.carp"
+            }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
                 match: "(?<=(\\s|\\(|\\[|\\{))((def[a-z\\-]*)|fn|quote|quasiquote|unquote|the)(?=(\\s|\\)|\\]|\\}))"
