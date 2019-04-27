@@ -159,12 +159,20 @@
     """
 
   # Functional paradigm functions
-  'endo-filter':
+  'filter':
     'prefix': 'filter'
+    'body': '(filter ${1:bool} ${2:indexed})'
+
+  'map':
+    'prefix': 'map'
+    'body': '(map ${1:function} ${2:indexed})'
+
+  'endo-filter':
+    'prefix': 'efilter'
     'body': '(endo-filter ${1:bool} ${2:indexed})'
 
   'endo-map':
-    'prefix': 'map'
+    'prefix': 'emap'
     'body': '(endo-map ${1:function} ${2:indexed})'
 
   'copy-filter':
