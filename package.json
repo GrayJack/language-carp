@@ -1,0 +1,21 @@
+{
+  "name": "language-carp",
+  "version": "0.0.0",
+  "description": "Janet language support in Atom",
+  "engines": {
+    "atom": "*",
+    "node": "*"
+  },
+  "homepage": "http://atom.github.io/language-carp",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/GrayJack/language-carp"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/GrayJack/language-carp/issues"
+  },
+  "devDependencies": {
+    "coffeelint": "^1.10.1"
+  }
+}
