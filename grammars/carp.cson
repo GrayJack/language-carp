@@ -140,12 +140,12 @@ repository:
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the|use)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the|use|system\\-include|local\\-include)(?=(\\s|\\)|\\]|\\}))"
                 name: "keyword.control.carp"
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(cond|do|set|while|each|if|if\\-let|if\\-not|let|loop|when|when\\-let|when\\-not|unless|seq|try|catch)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|update!|while|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|while|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq|register[a-z\\-]*)(?=(\\s|\\)|\\]|\\}))"
                 name: "storage.control.carp"
             }
             {
