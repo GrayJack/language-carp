@@ -137,7 +137,7 @@ repository:
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))((def[a-z\\-]*)|fn|quote|quasiquote|unquote|the)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the)(?=(\\s|\\)|\\]|\\}))"
                 name: "keyword.control.carp"
             }
             {
