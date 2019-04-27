@@ -1,11 +1,10 @@
 fileTypes: [
     "carp"
-    "jimage"
 ]
 foldingStartMarker: "\\("
 foldingStopMarker: "\\)"
 keyEquivalent: "^~L"
-name: "Janet"
+name: "Carp"
 patterns: [
     {
         include: "#all"
