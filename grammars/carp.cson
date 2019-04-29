@@ -125,8 +125,12 @@ repository:
             }
         ]
     "function-reference":
-        match: "(\\~)"
-        name: "punctuation.definition.func-ref.carp"
+        match: "(\\~)(.+)(?=\\s)"
+        captures:
+            "1":
+                name: "punctuation.definition.func-ref.carp"
+            "2":
+                name: "entity.name.function.call.carp"
         patterns: [
             {
                 include: "#all"
