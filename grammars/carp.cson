@@ -29,6 +29,9 @@ repository:
                 include: "#reference"
             }
             {
+                include: "#function-reference"
+            }
+            {
                 include: "#copy"
             }
             {
@@ -121,8 +124,16 @@ repository:
                 include: "#all"
             }
         ]
+    "function-reference":
+        match: "(\\~)"
+        name: "punctuation.definition.func-ref.carp"
+        patterns: [
+            {
+                include: "#all"
+            }
+        ]
     copy:
-        match: "(@?\\@)"
+        match: "(\\@)"
         name: "punctuation.definition.copy.carp"
         patterns: [
             {
@@ -130,7 +141,7 @@ repository:
             }
         ]
     readermac:
-        match: "[\\'\\~\\;\\,]"
+        match: "[\\'\\;\\,]"
         name: "punctuation.other.carp"
     keyfn:
         patterns: [
