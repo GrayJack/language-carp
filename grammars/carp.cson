@@ -125,7 +125,7 @@ repository:
             }
         ]
     "function-reference":
-        match: "(\\~)(.+)(?=\\s)"
+        match: "(\\~)(.+?)(?=\\s)"
         captures:
             "1":
                 name: "punctuation.definition.func-ref.carp"
@@ -183,13 +183,13 @@ repository:
                 name: "entity.name.module.carp"
             }
         ]
-    function:
+    "function-call":
         match: "(?<=\\()(.+?)(?=\\s|\\))"
         captures:
           "1":
             name: "entity.name.function.call.carp"
-    "function-call":
-        begin: "(?<=[\\(defn|\\(defn\\-|\\(fn])(?<![\\(def|\\(def-])\\s([a-zA-Z0-9\\#\\.\\-\\_\\:\\+\\=\\>\\<\\/\\!\\?\\*]+)(?=\\s|[\\s\\[])"
+    function:
+        begin: "(?<=[\\(defn|\\(fn])(?<![\\(def])\\s([a-zA-Z0-9\\#\\.\\-\\_\\:\\+\\=\\>\\<\\/\\!\\?\\*]+)(?=\\s|[\\s\\[])"
         captures:
             "1":
                 name: "entity.name.function.def.carp"
