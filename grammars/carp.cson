@@ -160,7 +160,7 @@ repository:
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(cond|do|set|while|each|if|if\\-let|if\\-not|let|loop|when|when\\-let|when\\-not|unless|seq|try|catch)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|while|while\\-do|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq|register[a-z\\-]*)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|while|while\\-do|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq|register[a-z\\-]*|ref|copy)(?=(\\s|\\)|\\]|\\}))"
                 name: "storage.control.carp"
             }
             {
@@ -216,7 +216,7 @@ repository:
         match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])[-+]?\\d\\d?r([_\\w]+|[_\\w]+\\.[_\\w]*|\\.[_\\w]+)(&[+-]?[\\w]+)?(?![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
         name: "constant.numeric.decimal.carp"
     string:
-        begin: "(@?\")"
+        begin: "(\")"
         beginCaptures:
             "1":
                 name: "punctuation.definition.string.begin.carp"
@@ -232,7 +232,7 @@ repository:
             }
         ]
     longstring:
-        begin: "(@?)(`+)"
+        begin: "(`+)"
         beginCaptures:
             "1":
                 name: "punctuation.definition.string.begin.carp"
