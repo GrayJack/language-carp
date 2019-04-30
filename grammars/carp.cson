@@ -155,12 +155,12 @@ repository:
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(asm|break|(def[a-z\\-]*)|(var[a-z\\-]*)|fn|quote|quasiquote|unquote|struct|(import[\*]?)|yield)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the|use|system\\-include|local\\-include)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))((break|def[a-z\\-]*)|fn|quote|quasiquote|unquote|the|use|system\\-include|local\\-include|match)(?=(\\s|\\)|\\]|\\}))"
                 name: "keyword.control.carp"
             }
             {
                 # match: "(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])(cond|do|set|while|each|if|if\\-let|if\\-not|let|loop|when|when\\-let|when\\-not|unless|seq|try|catch)(?<![\\.:\\w_\\-=!@\\$%^&?|\\\\/<>*])"
-                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|while|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq|register[a-z\\-]*)(?=(\\s|\\)|\\]|\\}))"
+                match: "(?<=(\\s|\\(|\\[|\\{))(address|case|cond|do|set!|while|while\\-do|for|each|if|if\\-let|if\\-not|let|let\\-do|when|when\\-let|when\\-not|unless|seq|register[a-z\\-]*)(?=(\\s|\\)|\\]|\\}))"
                 name: "storage.control.carp"
             }
             {
@@ -189,7 +189,7 @@ repository:
           "1":
             name: "entity.name.function.call.carp"
     function:
-        begin: "(?<=[\\(defn|\\(fn])(?<![\\(def])\\s([a-zA-Z0-9\\#\\.\\-\\_\\:\\+\\=\\>\\<\\/\\!\\?\\*]+)(?=\\s|[\\s\\[])"
+        begin: "(?<=[\\(defn|\\(fn])(?<![\\(def])\\s([a-zA-Z0-9\\#\\.\\-\\_\\+\\=\\>\\<\\/\\!\\?\\*]+)(?=\\s|[\\s\\[])"
         captures:
             "1":
                 name: "entity.name.function.def.carp"
