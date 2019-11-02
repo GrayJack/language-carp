@@ -34,7 +34,7 @@ folds: [
 scopes:
     'source_file': 'source.carp'
 
-    'block_comment': 'comment.block'
+    'line_comment': 'comment.line'
 
     '''
         call_expression > call_name > upper_identifier,
@@ -57,8 +57,8 @@ scopes:
         short_fn_ref > identifier,
     ''' : [
         {match: '^doc|hidden', scopes: 'entity.attribute'},
-        {match: '^<|<=|%|=|>|>=|\+|\-|\*|\/|and|and*|or|or*|not', scopes: 'keyword.operator'},
-        {match: '^for|case|cond|when|break|unless|foreach|defdynamic|let\-do|while\-do|defn\-do', scopes: 'keyword.other'},
+        {match: '^<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not', scopes: 'keyword.operator'},
+        {match: '^for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do', scopes: 'keyword.other'},
         {match: '^[A-Z]', scopes: 'entity.name.enum'},
         'entity.name.function.call'
     ]
