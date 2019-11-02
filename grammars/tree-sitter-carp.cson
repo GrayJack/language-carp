@@ -56,7 +56,7 @@ scopes:
     '''
         defmodule > identifier,
         use > upper_identifier,
-        call_expression > upper_identifier
+        call_expression > call_name > upper_identifier
     ''' : 'support.module'
 
     '''
@@ -77,6 +77,8 @@ scopes:
         {match: '^[A-Z\\d_]{2,}$', scopes: 'constant.other'},
         {match: '^[A-Z]', scopes: 'support.type'},
     ]
+
+    'symbol' : 'support.variable.contant.symbol'
 
     'short_ref > "&"' : 'support.reference'
     'short_copy > "@"' : 'support.copy'
