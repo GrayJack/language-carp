@@ -37,25 +37,27 @@ scopes:
     'block_comment': 'comment.block'
 
     '''
-        defmodule > identifier,
-        use > upper_identifier,
-        call_expression > upper_identifier
-    ''' : 'support.module'
-
-    '''
         defn > identifier,
         defndynamic > identifier,
         definterface > identifier,
         defmacro > identifier,
+        doc > identifier,
     ''' : 'entity.name.function.def'
 
     '''
         call_expression > call_name > identifier,
         short_fn_ref > identifier,
     ''' : [
+        {match: '^doc|hidden', scopes: 'entity.attribute'},
         {match: '^[A-Z]', scopes: 'entity.name.enum'},
         'entity.name.function.call'
     ]
+
+    '''
+        defmodule > identifier,
+        use > upper_identifier,
+        call_expression > upper_identifier
+    ''' : 'support.module'
 
     '''
         deftype > identifier,
@@ -81,14 +83,15 @@ scopes:
     'short_quote > "\'"' : 'support.quote'
     'short_fn_ref > "~"' : 'support.fn_ref'
 
-    '"doc"' : 'entity.attribute.doc'
-    '"hidden"' : 'entity.attribute.hidden'
+    'doc > "doc"' : 'entity.attribute.doc'
+    'hidden' : 'entity.attribute.hidden'
 
     '"def"' : 'storage.modifier.def'
     '"let"' : 'storage.modifier.let'
     '"deftype"'  : 'storage.modifier.deftype'
     '"defmacro"' : 'storage.modifier.defmacro'
     '"register"' : 'storage.modifier.register'
+    '"defmodule"' : 'storage.modifier.defmodule'
     '"definterface"' : 'storage.modifier.definterface'
     '"defndynamic"'  : 'storage.modifier.defndynamic'
     '"register-type"' : 'storage.modifier.register_type'
@@ -107,11 +110,8 @@ scopes:
     '"while"' : 'keyword.control.while'
     '"address"' : 'keyword.control.address'
 
-
-    '''
-      "+", "-", "/", "*", "%", "<", ">",
-      "=", "<=", ">=", "/=", "and", "or", "not",
-    ''' : 'keyword.operator'
+    'operators' : 'keyword.operator'
+    'other_str' : 'keyword.other'
 
     'str_literal' : 'string.quoted.double'
     'pattern_literal': 'string.quoted.double.pattern'
