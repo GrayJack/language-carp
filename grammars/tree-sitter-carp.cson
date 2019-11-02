@@ -1,0 +1,121 @@
+name: 'Carp'
+scopeName: 'source.carp'
+type: 'tree-sitter'
+parser: 'tree-sitter-carp'
+
+fileTypes: [
+  'carp'
+]
+
+comments:
+  start: '; '
+
+folds: [
+  {
+    type: 'if'
+  }
+  {
+    type: 'while'
+  }
+  {
+    type: 'let'
+  }
+  {
+    type: 'do'
+  }
+  {
+    type: 'fn'
+  }
+  {
+    type: 'defn'
+  }
+]
+
+scopes:
+    'source_file': 'source.carp'
+
+    'block_comment': 'comment.block'
+
+    '''
+        defmodule > identifier,
+        use > upper_identifier,
+        call_expression > upper_identifier
+    ''' : 'support.module'
+
+    '''
+        defn > identifier,
+        defndynamic > identifier,
+        definterface > identifier,
+        defmacro > identifier,
+    ''' : 'entity.name.function.def'
+
+    '''
+        call_expression > call_name > identifier,
+        short_fn_ref > identifier,
+    ''' : [
+        {match: '^[A-Z]', scopes: 'entity.name.enum'},
+        'entity.name.function.call'
+    ]
+
+    '''
+        deftype > identifier,
+        type > identifier,
+        complex_type > identifier,
+    ''' : 'support.type'
+
+    '''
+        parameters > identifier,
+        parameters > symbol,
+    ''' : 'entity.name.variable.parameter'
+
+    '''
+        upper_identifier,
+        identifier,
+    ''' : [
+        {match: '^[A-Z\\d_]{2,}$', scopes: 'constant.other'},
+        {match: '^[A-Z]', scopes: 'support.type'},
+    ]
+
+    'short_ref > "&"' : 'support.reference'
+    'short_copy > "@"' : 'support.copy'
+    'short_quote > "\'"' : 'support.quote'
+    'short_fn_ref > "~"' : 'support.fn_ref'
+
+    '"doc"' : 'entity.attribute.doc'
+    '"hidden"' : 'entity.attribute.hidden'
+
+    '"def"' : 'storage.modifier.def'
+    '"let"' : 'storage.modifier.let'
+    '"deftype"'  : 'storage.modifier.deftype'
+    '"defmacro"' : 'storage.modifier.defmacro'
+    '"register"' : 'storage.modifier.register'
+    '"definterface"' : 'storage.modifier.definterface'
+    '"defndynamic"'  : 'storage.modifier.defndynamic'
+    '"register-type"' : 'storage.modifier.register_type'
+    '"local-include"' : 'storage.modifier.include.local'
+    '"system-include"' : 'storage.modifier.include.system'
+
+    '"if"' : 'keyword.control.if'
+    '"do"' : 'keyword.control.do'
+    '"fn"' : 'keyword.control.fn'
+    '"ref"' : 'keyword.control.ref'
+    '"the"' : 'keyword.control.the'
+    '"use"' : 'keyword.control.use'
+    '"set!"' : 'keyword.control.set!'
+    '"defn"' : 'keyword.control.defn'
+    '"load"' : 'keyword.control.defn'
+    '"while"' : 'keyword.control.while'
+    '"address"' : 'keyword.control.address'
+
+
+    '''
+      "+", "-", "/", "*", "%", "<", ">",
+      "=", "<=", ">=", "/=", "and", "or", "not",
+    ''' : 'keyword.operator'
+
+    'str_literal' : 'string.quoted.double'
+    'pattern_literal': 'string.quoted.double.pattern'
+    'char_literal' : 'string.quoted.single'
+    'bool_literal' : 'constant.language.boolean'
+    'float_literal': 'constant.number.float'
+    'integer_literal': 'constant.number.integer'
