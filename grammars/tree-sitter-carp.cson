@@ -44,6 +44,7 @@ scopes:
     ''' : 'support.module'
 
     '''
+        register > identifier,
         defn > identifier,
         defndynamic > identifier,
         definterface > identifier,
@@ -67,6 +68,8 @@ scopes:
         deftype > identifier,
         type > identifier,
         complex_type > identifier,
+        interface_fn > "Fn",
+        interface_fn > "λ",
     ''' : 'support.type'
 
     '''
