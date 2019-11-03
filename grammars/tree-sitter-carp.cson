@@ -64,7 +64,7 @@ scopes:
     ]
 
     '''
-        deftype > identifier,
+        deftype > identifier:nth-child(0),
         type > identifier,
         complex_type > identifier,
     ''' : 'support.type'
