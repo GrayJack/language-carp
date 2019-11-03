@@ -55,13 +55,11 @@ scopes:
     '''
         call_expression > call_no_module > identifier,
         call_expression > call_with_module > identifier,
-        call_name> identifier,
         short_fn_ref > identifier,
     ''' : [
-        # {match: '^[A-Z]', scopes: 'entity.name.enum'},
         {match: '^doc|hidden', scopes: 'entity.attribute'},
-        {match: '^<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not', scopes: 'keyword.operator'},
-        {match: '^for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do', scopes: 'keyword.other'},
+        {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
+        {match: '^(for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
@@ -83,7 +81,6 @@ scopes:
         identifier,
     ''' : [
         {match: '^[A-Z\\d_]{2,}$', scopes: 'constant.other'},
-        # {match: '^[A-Z]', scopes: 'entity.name.enum'},
     ]
 
     '''
