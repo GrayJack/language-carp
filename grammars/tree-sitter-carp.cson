@@ -64,10 +64,11 @@ scopes:
     ]
 
     '''
-        deftype > identifier:nth-child(0),
         type > identifier,
         complex_type > identifier,
     ''' : 'support.type'
+
+    'deftype > identifier' : [{match: '^[A-ZΑ-Ω]', scopes: 'support.type'}]
 
     '''
         interface_fn > "Fn",
