@@ -45,7 +45,7 @@ scopes:
 
     '''
         register > identifier,
-        defn > identifier,
+        defn > identifier:nth-child(1),
         defndynamic > identifier,
         definterface > identifier,
         defmacro > identifier,
@@ -57,7 +57,7 @@ scopes:
         call_expression > call_with_module > identifier,
         short_fn_ref > identifier,
     ''' : [
-        {match: '^doc|hidden', scopes: 'entity.attribute'},
+        {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
         {match: '^(for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
