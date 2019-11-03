@@ -88,7 +88,8 @@ scopes:
 
     '''
         deftype > upper_identifier,
-        call_expression > call_with_module > upper_identifier:nth-child(1),
+        call_expression > call_with_module > upper_identifier:nth-child(2),
+        call_expression > call_no_module > upper_identifier,
     ''' : 'entity.name.enum'
 
     'symbol' : 'support.variable.contant.sym'
