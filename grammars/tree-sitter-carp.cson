@@ -67,9 +67,12 @@ scopes:
         deftype > identifier,
         type > identifier,
         complex_type > identifier,
+    ''' : 'support.type'
+
+    '''
         interface_fn > "Fn",
         interface_fn > "λ",
-    ''' : 'support.type'
+    ''' : 'support.type.func'
 
     '''
         parameters > identifier,
