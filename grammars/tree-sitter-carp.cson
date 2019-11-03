@@ -59,7 +59,7 @@ scopes:
     ''' : [
         {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
-        {match: '^(for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
+        {match: '^(for|case|cond|when|break|match|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
