@@ -105,6 +105,7 @@ scopes:
         quote_let > "\'",
         quote_param > "\'",
         quote_typaram > "\'",
+        quote_name > "\'",
     ''' : 'support.quote'
 
     'doc > "doc"' : 'entity.attribute.doc'
