@@ -38,7 +38,7 @@ scopes:
 
     '''
         call_expression > call_with_module > upper_identifier:nth-child(0),
-        call_name > upper_identifier,
+        modular_identifier > upper_identifier,
         defmodule > identifier,
         use > upper_identifier,
     ''' : 'support.module'
