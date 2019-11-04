@@ -41,13 +41,14 @@ scopes:
         modular_identifier > upper_identifier,
         defmodule > identifier,
         use > upper_identifier,
+        with > upper_identifier,
     ''' : 'support.module'
 
     '''
         register > identifier,
         defn > identifier:nth-child(1),
         defndynamic > identifier,
-        definterface > identifier,
+        definterface > identifier:nth-child(1),
         defmacro > identifier,
         doc > identifier,
     ''' : 'entity.name.function.def'
@@ -80,6 +81,7 @@ scopes:
         parameters > symbol,
     ''' : 'entity.name.variable.parameter'
 
+    'all_upper' : 'constant.other'
     '''
         upper_identifier,
         identifier,
@@ -97,8 +99,13 @@ scopes:
 
     'short_ref > "&"' : 'support.ref'
     'short_copy > "@"' : 'support.copy'
-    'short_quote > "\'"' : 'support.quote'
     'short_fn_ref > "~"' : 'support.fn_ref'
+    '''
+        short_quote > "\'",
+        quote_let > "\'",
+        quote_param > "\'",
+        quote_typaram > "\'",
+    ''' : 'support.quote'
 
     'doc > "doc"' : 'entity.attribute.doc'
     'hidden' : 'entity.attribute.hidden'
@@ -124,6 +131,7 @@ scopes:
     '"set!"' : 'keyword.control.set!'
     '"defn"' : 'keyword.control.defn'
     '"load"' : 'keyword.control.defn'
+    '"with"' : 'keyword.control.with'
     '"while"' : 'keyword.control.while'
     '"match"' : 'keyword.control.match'
     '"address"' : 'keyword.control.address'
@@ -131,6 +139,7 @@ scopes:
     'operators' : 'keyword.operator'
     'other_str' : 'keyword.other'
 
+    'unit' : 'constant.unit'
     'str_literal' : 'string.quoted.double'
     'pattern_literal': 'string.quoted.double.pattern'
     'char_literal' : 'string.quoted.single'
