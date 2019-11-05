@@ -123,7 +123,7 @@ scopes:
 
     'symbol' : 'support.variable.contant.sym'
 
-    'short_ref > "&"' : 'support.ref'
+    'short_ref > "&"' : 'support.reference'
     'short_copy > "@"' : 'support.copy'
     'short_fn_ref > "~"' : 'support.fn_ref'
     'quote' : 'support.quote'
