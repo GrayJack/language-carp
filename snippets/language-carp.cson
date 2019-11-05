@@ -53,7 +53,7 @@
     """
 
   # Macro bindings
-  'macro':
+  'defmacro':
     'prefix': 'macro'
     'body': """
       (defmacro ${1:name}
@@ -62,18 +62,18 @@
     """
 
   # Structs and Modules
-  'struct':
-    'prefix': 'struct'
+  'deftype':
+    'prefix': 'deftype'
     'body': """
       (deftype ${1:name}
       \t[${2:params}]
     """
 
-  'interface':
+  'definterface':
     'prefix': 'interface'
     'body': '(definterface ${1:name} (${2:Fn}))'
 
-  'module':
+  'defmodule':
     'prefix': 'module'
     'body': """
       (defmodule ${1:name}
