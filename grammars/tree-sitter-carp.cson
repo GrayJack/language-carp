@@ -37,8 +37,9 @@ scopes:
     'line_comment': 'comment.line'
 
     '''
-        call_expression > call_with_module > upper_identifier:nth-child(0),
+        call > call_with_module > upper_identifier:nth-child(0),
         modular_identifier > upper_identifier,
+        modular_identifier > all_upper,
         defmodule > identifier,
         use > upper_identifier,
         with > upper_identifier,
@@ -54,13 +55,13 @@ scopes:
     ''' : 'entity.name.function.def'
 
     '''
-        call_expression > call_no_module > identifier,
-        call_expression > call_with_module > identifier,
+        call > call_no_module > identifier,
+        call > call_with_module > identifier,
         short_fn_ref > identifier,
     ''' : [
         {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
-        {match: '^(for|case|cond|when|break|unless|foreach|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
+        {match: '^(for|case|cond|when|break|unless|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
@@ -79,9 +80,15 @@ scopes:
     '''
         parameters > identifier,
         parameters > symbol,
+        parameter_array > identifier,
+        parameter_array > symbol,
+        parameter_ident,
     ''' : 'entity.name.variable.parameter'
 
-    'all_upper' : 'constant.other'
+    '''
+        modular_identifier > all_upper:nth-last-child(0),
+        all_upper,
+    ''' : 'constant.other'
     '''
         upper_identifier,
         identifier,
@@ -91,8 +98,8 @@ scopes:
 
     '''
         deftype > upper_identifier,
-        call_expression > call_with_module > upper_identifier:nth-child(2),
-        call_expression > call_no_module > upper_identifier,
+        call > call_with_module > upper_identifier:nth-child(2),
+        call > call_no_module > upper_identifier,
     ''' : 'entity.name.enum'
 
     'symbol' : 'support.variable.contant.sym'
@@ -100,16 +107,10 @@ scopes:
     'short_ref > "&"' : 'support.ref'
     'short_copy > "@"' : 'support.copy'
     'short_fn_ref > "~"' : 'support.fn_ref'
-    '''
-        short_quote > "\'",
-        quote_let > "\'",
-        quote_param > "\'",
-        quote_typaram > "\'",
-        quote_name > "\'",
-    ''' : 'support.quote'
+    'quote' : 'support.quote'
 
     'doc > "doc"' : 'entity.attribute.doc'
-    'hidden' : 'entity.attribute.hidden'
+    'hidden > "hidden"' : 'entity.attribute.hidden'
 
     '"def"' : 'storage.modifier.def'
     '"let"' : 'storage.modifier.let'
