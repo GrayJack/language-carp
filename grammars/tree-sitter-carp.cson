@@ -126,10 +126,6 @@ scopes:
     'short_ref > "&"' : 'support.reference'
     'short_copy > "@"' : 'support.copy'
     'short_fn_ref > "~"' : 'support.fn_ref'
-    'quote' : 'support.quote'
-
-    'doc > "doc"' : 'entity.attribute.doc'
-    'hidden > "hidden"' : 'entity.attribute.hidden'
 
     '"def"' : 'storage.modifier.def'
     '"let"' : 'storage.modifier.let'
@@ -139,6 +135,8 @@ scopes:
     '"defmodule"' : 'storage.modifier.defmodule'
     '"definterface"' : 'storage.modifier.definterface'
     '"defndynamic"'  : 'storage.modifier.defndynamic'
+    'doc' : 'entity.attribute.doc'
+    'hidden' : 'entity.attribute.hidden'
     '"register-type"' : 'storage.modifier.register_type'
     '"local-include"' : 'storage.modifier.include.local'
     '"system-include"' : 'storage.modifier.include.system'
