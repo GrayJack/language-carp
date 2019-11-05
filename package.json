@@ -26,4 +26,7 @@
   "dependencies": {
     "tree-sitter-carp": "git://github.com/GrayJack/tree-sitter-carp#master"
   },
+  "devDependencies": {
+    "coffeelint": "^1.10.1"
+  }
 }
