@@ -24,6 +24,6 @@
     "url": "https://github.com/GrayJack/language-carp/issues"
   },
   "dependencies": {
-    "tree-sitter-carp": "^0.1.0"
+    "tree-sitter-carp": "0.1.0"
   },
 }
