@@ -86,7 +86,7 @@ scopes:
     ''' : 'entity.name.variable.parameter'
 
     '''
-        modular_identifier > all_upper:nth-last-child(0),
+        modular_identifier > all_upper,
         all_upper,
     ''' : 'constant.other'
     '''
