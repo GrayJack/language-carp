@@ -54,7 +54,7 @@
 
   # Macro bindings
   'defmacro':
-    'prefix': 'macro'
+    'prefix': 'defmacro'
     'body': """
       (defmacro ${1:name}
       \t[${2:params}]
@@ -70,11 +70,11 @@
     """
 
   'definterface':
-    'prefix': 'interface'
+    'prefix': 'definterface'
     'body': '(definterface ${1:name} (${2:Fn}))'
 
   'defmodule':
-    'prefix': 'module'
+    'prefix': 'defmodule'
     'body': """
       (defmodule ${1:name}
       \t${2:def1}
