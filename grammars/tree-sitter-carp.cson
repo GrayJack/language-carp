@@ -18,6 +18,12 @@ folds: [
     type: 'while'
   }
   {
+    type: 'match'
+  }
+  {
+    type: 'with'
+  }
+  {
     type: 'let'
   }
   {
@@ -29,12 +35,25 @@ folds: [
   {
     type: 'defn'
   }
+  {
+    type: 'defmacro'
+  }
+  {
+    type: 'defndynamic'
+  }
+  {
+    type: 'defmodule'
+  }
+  {
+    type: 'deftype'
+  }
 ]
 
 scopes:
     'source_file': 'source.carp'
 
-    'line_comment': 'comment.line'
+    'line_comment' : 'comment.line'
+    'quote' : 'support.quote'
 
     '''
         call > call_with_module > upper_identifier:nth-child(0),
