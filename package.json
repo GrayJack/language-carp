@@ -12,7 +12,7 @@
     "lisp"
   ],
   "engines": {
-    "atom": ">=1.40.0 <2.0.0"
+    "atom": ">=1.43.0 <2.0.0"
   },
   "homepage": "http://atom.github.io/language-carp",
   "repository": {
@@ -24,7 +24,7 @@
     "url": "https://github.com/GrayJack/language-carp/issues"
   },
   "dependencies": {
-    "tree-sitter-carp": "0.1.0"
+    "tree-sitter-carp": "0.2.0"
   },
   "devDependencies": {
     "coffeelint": "^1.10.1"
