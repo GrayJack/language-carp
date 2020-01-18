@@ -77,6 +77,7 @@ scopes:
 
     '''
         quote_expression > identifier,
+        quote_expression > modular_identifier > identifier,
         call > call_no_module > identifier,
         call > call_with_module > identifier,
         short_fn_ref > identifier,
