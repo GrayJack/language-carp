@@ -72,6 +72,7 @@ scopes:
         definterface > quote_expression > identifier,
         defmacro > identifier,
         doc > identifier,
+        sig > identifier,
     ''' : 'entity.name.function.def'
 
     '''
@@ -128,6 +129,7 @@ scopes:
 
     '"def"' : 'storage.modifier.def'
     '"let"' : 'storage.modifier.let'
+    '"sig"' : 'storage.modifier.sig'
     '"deftype"'  : 'storage.modifier.deftype'
     '"defmacro"' : 'storage.modifier.defmacro'
     '"register"' : 'storage.modifier.register'
