@@ -56,10 +56,9 @@ scopes:
     'quote' : 'support.quote'
 
     '''
-        call > call_with_module > upper_identifier:nth-child(0),
-        modular_identifier > upper_identifier,
-        modular_identifier > all_upper,
-        defmodule > identifier,
+        scoped_identifier > module_identifier:nth-child(0),
+        module_identifier,
+        defmodule > module_identifier,
         use > upper_identifier,
         with > upper_identifier,
     ''' : 'support.module'
@@ -76,21 +75,25 @@ scopes:
     ''' : 'entity.name.function.def'
 
     '''
+        call > scoped_identifier > identifier,
+        call >identifier:nth-child(1),
         quote_expression > identifier,
-        quote_expression > modular_identifier > identifier,
-        call > call_no_module > identifier,
-        call > call_with_module > identifier,
+        call > identifier:nth-child(1),
         short_fn_ref > identifier,
     ''' : [
+        {match: '^[A-Z\\d_]{1,}$', scopes: 'entity.name.enum'},
         {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
         {match: '^(for|case|cond|when|break|unless|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
+    'variant_identifier' : 'entity.name.enum'
+
     '''
         type > identifier,
         complex_type > identifier,
+        type_identifier,
     ''' : 'support.type'
 
     'deftype > identifier' : [{match: '^[A-ZΑ-Ω]', scopes: 'support.type'}]
@@ -109,21 +112,10 @@ scopes:
     ''' : 'entity.name.variable.parameter'
 
     '''
-        modular_identifier > all_upper,
-        all_upper,
-    ''' : 'constant.other'
-    '''
-        upper_identifier,
         identifier,
     ''' : [
         {match: '^[A-Z\\d_]{2,}$', scopes: 'constant.other'},
     ]
-
-    '''
-        deftype > upper_identifier,
-        call > call_with_module > upper_identifier:nth-child(2),
-        call > call_no_module > upper_identifier,
-    ''' : 'entity.name.enum'
 
     'symbol' : 'support.variable.contant.sym'
 
