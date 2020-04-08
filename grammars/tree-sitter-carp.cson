@@ -76,9 +76,8 @@ scopes:
 
     '''
         call > scoped_identifier > identifier,
-        call >identifier:nth-child(1),
+        call >identifier:nth-child(0),
         quote_expression > identifier,
-        call > identifier:nth-child(1),
         short_fn_ref > identifier,
     ''' : [
         {match: '^[A-Z\\d_]{1,}$', scopes: 'entity.name.enum'},
