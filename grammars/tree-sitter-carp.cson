@@ -72,7 +72,7 @@ scopes:
         definterface > quote_expression > identifier,
         defmacro > identifier,
         doc > identifier,
-        sig > identifier,
+        signature > identifier,
     ''' : 'entity.name.function.def'
 
     '''
