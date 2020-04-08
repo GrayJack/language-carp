@@ -90,6 +90,7 @@ scopes:
     'variant_identifier' : 'entity.name.enum'
 
     '''
+        type,
         type > identifier,
         complex_type > identifier,
         type_identifier,
