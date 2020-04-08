@@ -80,9 +80,9 @@ scopes:
         quote_expression > identifier,
         short_fn_ref > identifier,
     ''' : [
-        {match: '^[A-Z\\d_]{1,}$', scopes: 'entity.name.enum'},
+        {match: '^[A-Z\\d_]{1,}.+$', scopes: 'entity.name.enum'},
         {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
-        {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not)$', scopes: 'keyword.operator'},
+        {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not|/=)$', scopes: 'keyword.operator'},
         {match: '^(for|case|cond|when|break|unless|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
