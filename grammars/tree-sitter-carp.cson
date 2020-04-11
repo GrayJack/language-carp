@@ -166,3 +166,4 @@ scopes:
     'bool_literal' : 'constant.language.boolean'
     'float_literal': 'constant.number.float'
     'integer_literal': 'constant.number.integer'
+    'escape_sequence' : 'constant.character.escape'
