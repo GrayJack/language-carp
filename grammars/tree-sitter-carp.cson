@@ -12,40 +12,16 @@ comments:
 
 folds: [
   {
-    type: 'if'
+    start: {index: 0, type: '{'}
+    end: {index: -1, type: '}'}
   }
   {
-    type: 'while'
+    start: {index: 0, type: '['}
+    end: {index: -1, type: ']'}
   }
   {
-    type: 'match'
-  }
-  {
-    type: 'with'
-  }
-  {
-    type: 'let'
-  }
-  {
-    type: 'do'
-  }
-  {
-    type: 'fn'
-  }
-  {
-    type: 'defn'
-  }
-  {
-    type: 'defmacro'
-  }
-  {
-    type: 'defndynamic'
-  }
-  {
-    type: 'defmodule'
-  }
-  {
-    type: 'deftype'
+    start: {index: 0, type: '('}
+    end: {index: -1, type: ')'}
   }
 ]
 
@@ -56,45 +32,42 @@ scopes:
     'quote' : 'support.quote'
 
     '''
-        scoped_identifier > module_identifier:nth-child(0),
-        module_identifier,
-        defmodule > module_identifier,
-        use > upper_identifier,
-        with > upper_identifier,
+        module_symbol,
+        scoped_module > symbol,
     ''' : 'support.module'
 
     '''
-        register > identifier,
-        defn > identifier:nth-child(1),
-        defn > quote_expression > identifier,
-        defndynamic > identifier,
-        definterface > identifier:nth-child(1),
-        definterface > quote_expression > identifier,
-        defmacro > identifier,
-        doc > identifier,
-        signature > identifier,
+        register > symbol,
+        register > scoped_identifier > symbol,
+        defn > symbol,
+        defndynamic > symbol,
+        definterface > symbol,
+        defmacro > symbol,
+        doc > symbol,
+        doc > scoped_identifier > symbol,
+        signature > symbol,
+        signature > scoped_identifier > symbol,
+        hidden > symbol,
+        hidden > scoped_identifier > symbol,
     ''' : 'entity.name.function.def'
 
     '''
-        call > scoped_identifier > identifier,
-        call >identifier:nth-child(0),
-        quote_expression > identifier,
-        short_fn_ref > identifier,
+        call > scoped_identifier:nth-child(0) > symbol,
+        call > symbol:nth-child(0),
+        short_fn_ref > symbol,
     ''' : [
         {match: '^[A-Z\\d_]{1,}.+$', scopes: 'entity.name.enum'},
-        {match: '^(doc|hidden)$', scopes: 'entity.attribute'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not|/=)$', scopes: 'keyword.operator'},
         {match: '^(for|case|cond|when|break|unless|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
-    'variant_identifier' : 'entity.name.enum'
+    'variant_symbol' : 'entity.name.enum'
 
     '''
-        type,
-        type > identifier,
-        complex_type > identifier,
-        type_identifier,
+        type > symbol,
+        complex_type > symbol,
+        core_types
     ''' : 'support.type'
 
     'deftype > identifier' : [{match: '^[A-ZΑ-Ω]', scopes: 'support.type'}]
@@ -105,11 +78,8 @@ scopes:
     ''' : 'support.type.func'
 
     '''
-        parameters > identifier,
         parameters > symbol,
-        parameter_array > identifier,
-        parameter_array > symbol,
-        parameter_ident,
+        parameters > keyword,
     ''' : 'entity.name.variable.parameter'
 
     '''
@@ -118,19 +88,21 @@ scopes:
         {match: '^[A-Z\\d_]{2,}$', scopes: 'constant.other'},
     ]
 
-    'symbol' : 'support.variable.contant.sym'
+    'keyword' : 'support.variable.contant.key'
 
     'short_ref > "&"' : 'support.reference'
     'short_copy > "@"' : 'support.copy'
     'short_fn_ref > "~"' : 'support.fn_ref'
+    'short_quote > "\'"' : 'support.quote'
 
-    'doc' : 'entity.attribute.doc'
-    'hidden' : 'entity.attribute.hidden'
+    '"doc"' : 'entity.attribute.doc'
+    '"hidden"' : 'entity.attribute.hidden'
+    '"sig"' : 'entity.attribute.sig'
 
     '"def"' : 'storage.modifier.def'
-    '"doc"' : 'storage.modifier.doc'
     '"let"' : 'storage.modifier.let'
     '"sig"' : 'storage.modifier.sig'
+    '"defn"' : 'storage.modifier.defn'
     '"deftype"'  : 'storage.modifier.deftype'
     '"defmacro"' : 'storage.modifier.defmacro'
     '"register"' : 'storage.modifier.register'
@@ -148,16 +120,11 @@ scopes:
     '"the"' : 'keyword.control.the'
     '"use"' : 'keyword.control.use'
     '"set!"' : 'keyword.control.set!'
-    '"defn"' : 'keyword.control.defn'
     '"load"' : 'keyword.control.defn'
     '"with"' : 'keyword.control.with'
     '"while"' : 'keyword.control.while'
     '"match"' : 'keyword.control.match'
     '"address"' : 'keyword.control.address'
-
-    'operators' : 'keyword.operator'
-    'quote_expression > "\'"' : 'keyword.operator.quote'
-    'other_str' : 'keyword.other'
 
     'unit' : 'constant.unit'
     'str_literal' : 'string.quoted.double'
