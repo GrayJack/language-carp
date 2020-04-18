@@ -52,8 +52,8 @@ scopes:
     ''' : 'entity.name.function.def'
 
     '''
-        call > scoped_identifier:nth-child(0) > symbol,
-        call > symbol:nth-child(0),
+        call > scoped_identifier:nth-child(1) > symbol,
+        call > symbol:nth-child(1),
         short_fn_ref > symbol,
     ''' : [
         {match: '^[A-Z\\d_]{1,}.+$', scopes: 'entity.name.enum'},
