@@ -60,7 +60,7 @@ scopes:
     ''' : [
         {match: '^[A-Z\\d_]{1,}.+$', scopes: 'entity.name.enum'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not|/=)$', scopes: 'keyword.operator'},
-        {match: '^(for|break|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
+        {match: '^(for|break|defdynamic|let\\-do|while\\-do|defn\\-do|load|system\\-include|local\\-include|register\\-type)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
@@ -69,6 +69,7 @@ scopes:
     '''
         type > symbol,
         complex_type > symbol,
+        type_symbol,
         core_types
     ''' : 'support.type'
 
