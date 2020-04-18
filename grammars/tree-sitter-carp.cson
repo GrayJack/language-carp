@@ -49,6 +49,8 @@ scopes:
         signature > scoped_identifier > symbol,
         hidden > symbol,
         hidden > scoped_identifier > symbol,
+        private > symbol,
+        private > scoped_identifier > symbol,
     ''' : 'entity.name.function.def'
 
     '''
@@ -58,7 +60,7 @@ scopes:
     ''' : [
         {match: '^[A-Z\\d_]{1,}.+$', scopes: 'entity.name.enum'},
         {match: '^(<|<=|%|=|>|>=|\\+|\\-|\\*|\\/|and|and\\*|or|or\\*|not|/=)$', scopes: 'keyword.operator'},
-        {match: '^(for|case|cond|when|break|unless|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
+        {match: '^(for|break|defdynamic|let\\-do|while\\-do|defn\\-do)$', scopes: 'keyword.other'},
         'entity.name.function.call'
     ]
 
@@ -98,6 +100,7 @@ scopes:
     '"doc"' : 'entity.attribute.doc'
     '"hidden"' : 'entity.attribute.hidden'
     '"sig"' : 'entity.attribute.sig'
+    '"private"' : 'entity.attribute.private'
 
     '"def"' : 'storage.modifier.def'
     '"let"' : 'storage.modifier.let'
