@@ -24,7 +24,7 @@
     "url": "https://github.com/GrayJack/language-carp/issues"
   },
   "dependencies": {
-    "tree-sitter-carp": "~0.3.0"
+    "tree-sitter-carp": "git+https://github.com/GrayJack/tree-sitter-carp#master"
   },
   "devDependencies": {
     "coffeelint": "^1.10.1"

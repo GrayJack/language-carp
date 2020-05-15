@@ -1,0 +1,17 @@
+'.source.carp':
+  'editor':
+    'autoIndentOnPaste': false
+    'commentStart': '; '
+    'tabLength': 2
+    'softTabs': true
+    'preferredLineLength': 80
+  'autocomplete':
+    'extraWordCharacters': '-'
+  'bracket-matcher':
+     autocompleteCharacters: [
+       '()'
+       '[]'
+       '{}'
+       '""'
+       '``'
+     ]
