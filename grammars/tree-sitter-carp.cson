@@ -67,6 +67,8 @@ scopes:
 
     'variant_symbol' : 'entity.name.enum'
 
+    'meta_symbol' : 'variable.other.meta'
+
     '''
         type > symbol,
         complex_type > symbol,
